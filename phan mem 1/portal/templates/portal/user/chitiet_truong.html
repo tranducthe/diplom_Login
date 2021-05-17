@@ -1,0 +1,57 @@
+{% extends "../../pages/base.html" %} {% load static %} {% block title %} University detail {% endblock %} {% block content %}
+<div class="page-wrapper">
+    <div class="preloader"></div>
+    {% include './header.html' %}
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="course-detail-section">
+                <div class="auto-container">
+                    <div class="upper-content">
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                {% load static %} {% get_static_prefix as STATIC_PREFIX %}
+                                <img src="{{ STATIC_PREFIX }}images/truong/{{Truong.IdTruong}}.jpg" alt="" />
+
+                            </div>
+                            <div class="col-lg-8 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <h2>Name : {{Truong.TenTruong}}</h2>
+                                    <div class="inner-column col-sm-6">
+                                        <div class="sub-text">Detail : {{Truong.ChiTiet}}</div>
+                                        <div class="sub-text">Full Detail {{Truong.ChiTietFull}}</div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="inner-column col-sm-2">
+                                        <h3>Rating:</h3>
+                                    </div>
+                                    <div class="inner-column col-sm-10">
+                                        <ul class="ratings">
+                                            <li school='{{Truong.IdTruong}}' value="5" class="star{% if Point == 5 %} selected{% endif %}"></li>
+                                            <li school='{{Truong.IdTruong}}' value="4" class="star{% if Point == 4 %} selected{% endif %}"></li>
+                                            <li school='{{Truong.IdTruong}}' value="3" class="star{% if Point == 3 %} selected{% endif %}"></li>
+                                            <li school='{{Truong.IdTruong}}' value="2" class="star{% if Point == 2 %} selected{% endif %}"></li>
+                                            <li school='{{Truong.IdTruong}}' value="1" class="star{% if Point == 1 %} selected{% endif %}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="inner-column col-sm-2">
+                                        <h3>Favorite:</h3>
+                                    </div>
+                                    <div class="inner-column col-sm-10">
+                                        <ul class="ratings">
+                                            <li school='{{Truong.IdTruong}}' value="{{Love}}" class="love{% if Love == 1 %} selected{% endif %}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include './sidebar.html' %} {% endblock %}

@@ -1,0 +1,60 @@
+{% extends "../../pages/base.html" %} {% load static %} {% block title %} Danh sách đề tài {% endblock %} {% block content %}
+
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    <!-- Main Header-->
+    {% include './header.html' %} {% comment %} End {% endcomment %}
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="container-xl">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h2>Danh Sách Đề Tài</b>
+                                    </h2>
+                                </div>
+                                <div class="col-sm-7">
+                                    <form></form>
+                                    <a href="/admin/exportdkdt" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export ra Excel</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>IdDTDDK</th>
+                                    <th>IdUser</th>
+                                    <th>MSSV</th>
+                                    <th style="width: 200px;">HoTen</th>
+                                    <th>IDGV</th>
+                                    <th>TenGiangVien</th>
+                                    <th>IdDeTai</th>
+                                    <th>TenDeTai</th>
+                                    <th>NgayDKDT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for nguoidung in DS_NguoiDung %}
+                                <tr>
+                                    <th>{{nguoidung.IdDTDDK}}</th>
+                                    <th>{{nguoidung.IdUser}}</th>
+                                    <th>{{nguoidung.MSSV}}</th>
+                                    <th style="width: 200px;">{{nguoidung.HoTen}}</th>
+                                    <th>{{nguoidung.IDGV}}</th>
+                                    <th>{{nguoidung.TenGiangVien}}</th>
+                                    <th>{{nguoidung.IdDeTai}}</th>
+                                    <th>{{nguoidung.TenDeTai}}</th>
+                                    <th>{{nguoidung.NgayDKDT|date:'Y-m-d'}}</th>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include './sidebar.html' %} {% endblock %}

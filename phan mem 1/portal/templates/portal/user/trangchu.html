@@ -1,0 +1,56 @@
+{% extends "../../pages/base.html" %} {% load static %} {% block title %}Trang Chủ{% endblock %} {% block content %}
+<div class="page-wrapper">
+    <div class="preloader"></div>
+    {% include './header.html' %}
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!-- Content Side -->
+                <div class="content-side right-sidebar col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="courses-section">
+                        <!-- Sec Title -->
+                        <div class="sec-title">
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    <h4>List Universities</h4>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="all_university/" class="see-all">View all</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            {% for truong in Truong %}
+                            <div class="course-block col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <a href="detail_university/{{truong.IdTruong}}"><img src="{% static 'images/resource/course-1.jpg'%}" alt="" /></a>
+                                        <div style="font-weight: 800;font-style: oblique;" class="time">{{truong.TenTruong}}</div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h6><a href="detail_university/{{truong.IdTruong}}">{{truong.TenTruong}}</a></h6>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author">Name: <span>{{truong.TenTruong}}</span></a>
+                                            </div>
+                                        </div>
+                                        <ul class="post-meta">
+                                            <li>Detail: {{truong.ChiTiet}}</li>
+                                        </ul>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author"><span>Click for more detail</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include './sidebar.html' %} {% endblock %}

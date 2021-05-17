@@ -1,0 +1,101 @@
+{% extends "../../pages/base.html" %} {% load static %} {% block title %}Trang Chủ{% endblock %} {% block content %}
+<div class="page-wrapper">
+    <div class="preloader"></div>
+    {% include './header.html' %}
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!-- Content Side -->
+                <div class="content-side right-sidebar col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="courses-section">
+                        <!-- Sec Title -->
+                        <div class="sec-title">
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    <h4>List Favorite</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            {% for vote in Favorites %}
+                            <div class="course-block col-lg-3 col-md-4 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <a href="detail_university/{{vote.IdTruong}}"><img src="{% static 'images/resource/course-1.jpg'%}" alt="" /></a>
+                                        <div style="font-weight: 800;font-style: oblique;" class="time">{{vote.TenTruong}}</div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h6><a href="detail_university/{{vote.IdTruong}}">{{vote.TenTruong}}</a></h6>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author">Name: <span>{{vote.TenTruong}}</span></a>
+                                            </div>
+                                        </div>
+                                        <ul class="post-meta">
+                                            <li>Detail: {{vote.ChiTiet}}</li>
+                                        </ul>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author"><span>Click for more detail</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="courses-section">
+                        <!-- Sec Title -->
+                        <div class="sec-title">
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    <h4>List Voted</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            {% for vote in Votes %}
+                            <div class="course-block col-lg-3 col-md-4 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <a href="detail_university/{{vote.IdTruong}}"><img src="{% static 'images/resource/course-1.jpg'%}" alt="" /></a>
+                                        <div style="font-weight: 800;font-style: oblique;" class="time">{{vote.TenTruong}}</div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h6><a href="detail_university/{{vote.IdTruong}}">{{vote.TenTruong}}</a></h6>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author">Name: <span>{{vote.TenTruong}}</span></a>
+                                            </div>
+                                        </div>
+                                        <ul class="post-meta">
+                                            <li>Detail: {{vote.ChiTiet}}</li>
+                                        </ul>
+                                        <div class="clearfix">
+                                            <ul class="ratings">
+                                                <li value="5" class="vote{% if vote.Point == 5 %} selected{% endif %}"></li>
+                                                <li value="4" class="vote{% if vote.Point == 4 %} selected{% endif %}"></li>
+                                                <li value="3" class="vote{% if vote.Point == 3 %} selected{% endif %}"></li>
+                                                <li value="2" class="vote{% if vote.Point == 2 %} selected{% endif %}"></li>
+                                                <li value="1" class="vote{% if vote.Point == 1 %} selected{% endif %}"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="pull-left">
+                                                <a class="author"><span>Click for more detail</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include './sidebar.html' %} {% endblock %}

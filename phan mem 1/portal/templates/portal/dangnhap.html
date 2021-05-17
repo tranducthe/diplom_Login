@@ -1,0 +1,42 @@
+{% extends "../pages/base.html" %} {% load static %} {% block title %} Login system {% endblock %} {% block content %}
+<div class="page-wrapper">
+    <div class="preloader"></div>
+    <section class="signup-section">
+        <div class="auto-container">
+            <div class="logo">
+                <a href="/"><img src="{% static 'images/logo_1.png'%}" alt=""></a>
+            </div>
+            <div class="inner-container">
+                <h2>Login System <span class="theme_color">The_Portal_Recomendation</span></h2>
+                <div class="text"></div>
+                <!-- Login Form -->
+                <div class="styled-form">
+                    <form id="form_dangnhap">
+                        <div class="row clearfix">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <label>Name Accout</label>
+                                <input type="text" name="username" id="dn_username" value="usertest" placeholder="Tên đăng nhập" required="">
+                            </div>
+                            <!-- Form Group -->
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <label>Password</label>
+                                <span class="eye-icon fa fa-eye"></span>
+                                <input type="password" name="password" id="dn_password" value="111222" placeholder="Password" required="">
+                            </div>
+
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 text-center">
+                                <button id="dangnhapBtn" type="button" class="theme-btn btn-style-one"><span class="txt">Login</span></button>
+                            </div>
+
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <div class="users">No account ? <a href="../dangki">sign up for an account</a></div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
